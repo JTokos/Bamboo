@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'readingPage.dart';
 import 'Constants.dart';
+import 'dart:math';
 
-void main() => runApp(MyApp());
+void main() => runApp(BambooHome());
 
-class MyApp extends StatelessWidget {
+class BambooHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -55,7 +56,10 @@ Widget _myListView(BuildContext context) {
           title: Text('Level 1'),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            print('Level 1 Selected');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LevelOne()),//changes page to reading page
+            );
           },
         ),
         ListTile(
