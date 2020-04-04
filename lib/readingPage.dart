@@ -1,13 +1,15 @@
 import 'main.dart';
+import 'questionPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_testing/main.dart';
 import 'package:quiver/async.dart';
 import 'dart:math';
+
+
 String para = prompt();
 void main() {
   runApp(new MaterialApp(home: new LevelOne()));
 }
-
 // ignore: missing_return
 String prompt() {
   Random rnd = new Random();
@@ -47,7 +49,7 @@ class LevelOne extends StatefulWidget {
 }
 
 class LevelOneState extends State<LevelOne> {
-  final timeOutInSeconds = 30;
+  final timeOutInSeconds = 5;
   final stepInSeconds = 1;
   int currentNumber = 0;
 
@@ -65,7 +67,7 @@ class LevelOneState extends State<LevelOne> {
       currentNumber += stepInSeconds;
 
       this.onTimerTick(currentNumber);
-      print('Your message here: $currentNumber');
+      print('Remaining time:  $currentNumber');
     });
 
     sub.onDone(() {
@@ -73,10 +75,10 @@ class LevelOneState extends State<LevelOne> {
 
       sub.cancel();
 
-      Navigator.pop(
+      Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => BambooHome()), //changes page to question page
+            builder: (context) => Quiz1()), //changes page to question page
       );
     });
   }
@@ -89,7 +91,7 @@ class LevelOneState extends State<LevelOne> {
 
   @override
   Widget build(BuildContext context) {
-    int number = timeOutInSeconds - currentNumber;
+    int timeRemaining = timeOutInSeconds - currentNumber;
     // Make it start from the timeout value
     //number += stepInSeconds
     return new Scaffold(
@@ -101,11 +103,11 @@ class LevelOneState extends State<LevelOne> {
           Column(
             children: <Widget>[
               Text(
-                "Your message here: $number",
+                "Paragraph: $para",
                 style: new TextStyle(color: Colors.green, fontSize: 25.0),
               ),
               Text(
-                "Random numer: $para",
+                "Time Remaining: $timeRemaining",
               ),
             ], //children
           ),
