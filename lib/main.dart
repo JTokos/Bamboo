@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'questionPage.dart';
-import 'readingPage.dart';
-import 'Constants.dart';
-import 'dart:math';
+import 'readingPageOne.dart';
+import 'readingPageTwo.dart';
+import 'readingPageThree.dart';
+
 
 void main() => runApp(BambooHome());
+
 
 class BambooHome extends StatelessWidget {
   @override
@@ -17,19 +18,6 @@ class BambooHome extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(title: Text('Bamboo'),
-          actions: <Widget>[
-            PopupMenuButton<String>(
-              onSelected: choiceAction,
-              itemBuilder: (BuildContext context){
-                return Constants.choices.map((String choice){
-                  return PopupMenuItem<String>( //settings menu
-                    value: choice,
-                    child: Text(choice),
-                  );
-                }).toList();
-              },//itemBuilder
-            )
-          ],
         ),
         body:
         BodyLayout(),
@@ -38,11 +26,8 @@ class BambooHome extends StatelessWidget {
   }
 }
 
-void choiceAction(String choice){
-  print('Working');
-}
-
 class BodyLayout extends StatelessWidget {
+  BodyLayout();
   Widget build(BuildContext context) {
     return _myListView(context);
   }
@@ -67,49 +52,20 @@ Widget _myListView(BuildContext context) {
           title: Text('Level 2'),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            print('Level 2 Selected');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LevelTwo()),//changes page to reading page
+            );
           },
         ),
         ListTile(
           title: Text('Level 3'),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            print('Level 3 Selected');
-          },
-        ),
-        ListTile(
-          title: Text('Level 4'),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            print('Level 4 Selected');
-          },
-        ),
-        ListTile(
-          title: Text('Level 5'),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            print('Level 5 Selected');
-          },
-        ),
-        ListTile(
-          title: Text('Level 6'),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            print('Level 6 Selected');
-          },
-        ),
-        ListTile(
-          title: Text('Level 7'),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            print('Level 7 Selected');
-          },
-        ),
-        ListTile(
-          title: Text('Level 8'),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            print('Level 8 Selected');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LevelThree()),//changes page to reading page
+            );
           },
         ),
       ],

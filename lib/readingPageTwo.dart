@@ -1,59 +1,24 @@
-import 'main.dart';
-import 'questionPage.dart';
+import 'package:flutter_testing/Passages.dart';
+import 'quizTwo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_testing/main.dart';
 import 'package:quiver/async.dart';
-import 'dart:math';
+import 'Passages.dart';
 
-
-String para = prompt();
 void main() {
-  runApp(new MaterialApp(home: new LevelOne()));
-}
-// ignore: missing_return
-String prompt() {
-  Random rnd = new Random();
-  int min = 1;
-  int max = 4;
-  int randNum = min + rnd.nextInt(max - min);
-  switch (randNum) {
-    case 1:
-      {
-        return("Excellent");
-      }
-      break;
-
-    case 2:
-      {
-        return("Good");
-      }
-      break;
-
-    case 3:
-      {
-        return("Fair");
-      }
-      break;
-
-    default:
-      {
-        print("Invalid choice");
-      }
-      break;
-  }
+  runApp(new MaterialApp(home: new LevelTwo()));
 }
 
-class LevelOne extends StatefulWidget {
+class LevelTwo extends StatefulWidget {
   @override
-  LevelOneState createState() => new LevelOneState();
+  LevelTwoState createState() => new LevelTwoState();
 }
 
-class LevelOneState extends State<LevelOne> {
-  final timeOutInSeconds = 5;
+class LevelTwoState extends State<LevelTwo> {
+  final timeOutInSeconds = 3;
   final stepInSeconds = 1;
   int currentNumber = 0;
 
-  LevelOneState() {
+  LevelTwoState() {
     setupCountdownTimer();
   }
 
@@ -78,7 +43,7 @@ class LevelOneState extends State<LevelOne> {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => Quiz1()), //changes page to question page
+            builder: (context) => Quiz2()), //changes page to question page
       );
     });
   }
@@ -95,19 +60,17 @@ class LevelOneState extends State<LevelOne> {
     // Make it start from the timeout value
     //number += stepInSeconds
     return new Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          title: Text('Level 1'),
+          title: Text('Level 2\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTime: $timeRemaining'),
         ),
-        body: new Center(
+        body: SingleChildScrollView(
           child:
           Column(
             children: <Widget>[
               Text(
-                "Paragraph: $para",
-                style: new TextStyle(color: Colors.green, fontSize: 25.0),
-              ),
-              Text(
-                "Time Remaining: $timeRemaining",
+                Passages.LvTwoPassage,
+                style: new TextStyle(color: Colors.black, fontSize: 22.0),
               ),
             ], //children
           ),

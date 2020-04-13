@@ -3,41 +3,44 @@ import 'package:flutter/material.dart';
 
 class ReadingQuiz {
   var questions = [
-    "Why are we here?",
-    "Just to suffer?",
-    "Question 3",
-    "Question 4",
+    "How does Amy want Jo to act?",
+    "What experience does Jo use to act calm, cool, and quiet?",
+    "What was Jo's first mistake?",
   ];
 
   var choices = [
-    ["A", "B", "C", "D"],
-    ["Hop", "Step", "Jump", "Duck"],
-    ["Fire", "Earth", "Water", "Air"],
-    ["Help", "Me", "Finish", "This"],
+    [
+      "\"level-headed\"",
+      "\"distant\".",
+      "\"calm, cool, and quiet\".",
+      "\"calm, shy, and womanly\"."
+    ],
+    ["Her mothering experience", "Her lying", "Her server experience", "Her stage acting"],
+    ["Being loud", "Getting lost during the event", "Taking Amy's advice too literally", "Being disrespectful"],
   ];
 
-  var correctAnswers = ["A", "Step", "Water", "Me"];
+  var correctAnswers = ["\"calm, cool, and quiet\".", "Her stage acting", "Taking Amy's advice too literally"];
 }
 
 var finalScore = 0;
 var questionNumber = 0;
 var quiz = new ReadingQuiz();
 
-class Quiz1 extends StatefulWidget {
+class Quiz2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new Quiz1State();
+    return new Quiz2State();
   }
 }
 
-class Quiz1State extends State<Quiz1> {
+class Quiz2State extends State<Quiz2> {
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
             appBar: AppBar(
-              title: Text('Level 1 Quiz'),
+              title: Text('Level 2 Quiz'),
             ),
             body: new Container(
                 margin: const EdgeInsets.all(10.0),
@@ -68,12 +71,13 @@ class Quiz1State extends State<Quiz1> {
                       ),
                     ),
                     new Padding(padding: EdgeInsets.all(10.0)),
+
                     new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         //button1
                         new MaterialButton(
-                          minWidth: 120.0,
+                          minWidth: 300.0,
                           color: Colors.green,
                           onPressed: () {
                             if (quiz.choices[questionNumber][0] ==
@@ -91,10 +95,16 @@ class Quiz1State extends State<Quiz1> {
                                 fontSize: 20.0, color: Colors.white),
                           ),
                         ),
-
                         //button2
+                      ],
+                    ),
+                    new Padding(padding: EdgeInsets.all(10.0)),
+                    //Button 2
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
                         new MaterialButton(
-                          minWidth: 120.0,
+                          minWidth: 300.0,
                           color: Colors.green,
                           onPressed: () {
                             if (quiz.choices[questionNumber][1] ==
@@ -120,7 +130,7 @@ class Quiz1State extends State<Quiz1> {
                       children: <Widget>[
                         //button3
                         new MaterialButton(
-                          minWidth: 120.0,
+                          minWidth: 300.0,
                           color: Colors.green,
                           onPressed: () {
                             if (quiz.choices[questionNumber][2] ==
@@ -138,10 +148,15 @@ class Quiz1State extends State<Quiz1> {
                                 fontSize: 20.0, color: Colors.white),
                           ),
                         ),
-
+                      ],
+                    ),
+                    new Padding(padding: EdgeInsets.all(10.0)),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
                         //button4
                         new MaterialButton(
-                          minWidth: 120.0,
+                          minWidth: 300.0,
                           color: Colors.green,
                           onPressed: () {
                             if (quiz.choices[questionNumber][3] ==
@@ -162,7 +177,7 @@ class Quiz1State extends State<Quiz1> {
                       ],
                     ),
                     new Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(25.0),
                     ),
 
                     //Quit Button
@@ -184,7 +199,8 @@ class Quiz1State extends State<Quiz1> {
                 ))));
   }
 
-  void quit() { //goes back to main menu and resets score
+  void quit() {
+    //goes back to main menu and resets score
     setState(() {
       Navigator.popUntil(context, ModalRoute.withName("/"));
       finalScore = 0;
@@ -212,7 +228,7 @@ class Summary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
-        //disables back button, NO CHEATING ON QUIZ!
+      //disables back button, NO CHEATING ON QUIZ!
         onWillPop: () async => false,
         child: Scaffold(
           body: new Container(
