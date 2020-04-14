@@ -14,7 +14,7 @@ class LevelThree extends StatefulWidget {
 }
 
 class LevelThreeState extends State<LevelThree> {
-  final timeOutInSeconds = 3;
+  final timeOutInSeconds = 60;
   final stepInSeconds = 1;
   int currentNumber = 0;
 
@@ -62,7 +62,7 @@ class LevelThreeState extends State<LevelThree> {
     return new Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          title: Text('Level 2\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTime: $timeRemaining'),
+          title: Text('Level 3\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTime: $timeRemaining'),
         ),
         body: SingleChildScrollView(
           child:

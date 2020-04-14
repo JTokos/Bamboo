@@ -1,24 +1,24 @@
 import 'package:flutter_testing/Passages.dart';
-import 'quizTwo.dart';
+import 'quizFour.dart';
 import 'package:flutter/material.dart';
 import 'package:quiver/async.dart';
 import 'Passages.dart';
 
 void main() {
-  runApp(new MaterialApp(home: new LevelTwo()));
+  runApp(new MaterialApp(home: new LevelFour()));
 }
 
-class LevelTwo extends StatefulWidget {
+class LevelFour extends StatefulWidget {
   @override
-  LevelTwoState createState() => new LevelTwoState();
+  LevelFourState createState() => new LevelFourState();
 }
 
-class LevelTwoState extends State<LevelTwo> {
+class LevelFourState extends State<LevelFour> {
   final timeOutInSeconds = 60;
   final stepInSeconds = 1;
   int currentNumber = 0;
 
-  LevelTwoState() {
+  LevelFourState() {
     setupCountdownTimer();
   }
 
@@ -43,7 +43,7 @@ class LevelTwoState extends State<LevelTwo> {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => Quiz2()), //changes page to question page
+            builder: (context) => Quiz4()), //changes page to question page
       );
     });
   }
@@ -62,14 +62,14 @@ class LevelTwoState extends State<LevelTwo> {
     return new Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          title: Text('Level 2\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTime: $timeRemaining'),
+          title: Text('Level 4\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTime: $timeRemaining'),
         ),
         body: SingleChildScrollView(
           child:
           Column(
             children: <Widget>[
               Text(
-                Passages.LvTwoPassage,
+                Passages.LvFourPassage,
                 style: new TextStyle(color: Colors.black, fontSize: 22.0),
               ),
             ], //children
