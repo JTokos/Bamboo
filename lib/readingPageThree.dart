@@ -68,9 +68,12 @@ class LevelThreeState extends State<LevelThree> {
           child:
           Column(
             children: <Widget>[
-              Text(
-                Passages.LvThreePassage,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child:
+                Text(Passages.LvThreePassage,
                 style: new TextStyle(color: Colors.black, fontSize: 22.0),
+                ),
               ),
             ], //children
           ),

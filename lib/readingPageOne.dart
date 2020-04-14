@@ -68,9 +68,12 @@ class LevelOneState extends State<LevelOne> {
           child:
           Column(
             children: <Widget>[
-              Text(
-                Passages.LvOnePassage,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child:
+                Text(Passages.LvOnePassage,
                 style: new TextStyle(color: Colors.black, fontSize: 22.0),
+                ),
               ),
             ], //children
           ),

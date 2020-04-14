@@ -68,9 +68,12 @@ class LevelFourState extends State<LevelFour> {
           child:
           Column(
             children: <Widget>[
-              Text(
-                Passages.LvFourPassage,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child:
+                Text(Passages.LvFourPassage,
                 style: new TextStyle(color: Colors.black, fontSize: 22.0),
+                ),
               ),
             ], //children
           ),

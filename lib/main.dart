@@ -3,6 +3,7 @@ import 'readingPageOne.dart';
 import 'readingPageTwo.dart';
 import 'readingPageThree.dart';
 import 'readingPageFour.dart';
+import 'readingPageFive.dart';
 
 
 void main() => runApp(BambooHome());
@@ -76,6 +77,16 @@ Widget _myListView(BuildContext context) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => LevelFour()),//changes page to reading page
+            );
+          },
+        ),
+        ListTile(
+          title: Text('Level 5'),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LevelFive()),//changes page to reading page
             );
           },
         ),
