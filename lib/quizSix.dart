@@ -3,39 +3,37 @@ import 'package:flutter/material.dart';
 
 class ReadingQuiz {
   var questions = [
-    "To what country does Twain say the witty story belongs?",
-    "To what country does Twain say the humorous belongs?",
-    "Is Twain talking about stories told out loud, printed stories, or both or neither?",
+    "Why is Della crying?",
+    "How many times did Della count the amount of money?",
   ];
 
   var choices = [
-    ["Italy", "Germany", "England", "France"],
-    ["America", "France", "Italy", "Germany"],
-    ["Stories told out loud", "Printed stories", "Both", "Neither"],
+    ["Because Della is lonely", "Della got fired", "School stress", "Because Della is poor"],
+    ["Once", "Twice", "Three Times", "Four Times"],
   ];
 
-  var correctAnswers = ["France", "America", "Stories told out loud"];
+  var correctAnswers = ["Because Della is poor", "Three Times"];
 }
 
 var finalScore = 0;
 var questionNumber = 0;
 var quiz = new ReadingQuiz();
 
-class Quiz5 extends StatefulWidget {
+class Quiz6 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new Quiz5State();
+    return new Quiz6State();
   }
 }
 
-class Quiz5State extends State<Quiz5> {
+class Quiz6State extends State<Quiz6> {
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
             appBar: AppBar(
-              title: Text('Level 5 Quiz'),
+              title: Text('Level 6 Quiz'),
             ),
             body: new Container(
                 margin: const EdgeInsets.all(10.0),
